@@ -12,7 +12,7 @@ When you get the response from the server, print the current temperature in an <
 */
 
 
-let send = document.querySelector("#send")
+let get = document.querySelector("#get")
 let lat = document.querySelector("#lat")
 let lon = document.querySelector("#lon")
 let temp = document.querySelector("#temp")
@@ -28,4 +28,4 @@ function getInfo() {
 
 }
 
-send.addEventListener("click", getInfo)
+get.addEventListener("click", getInfo)

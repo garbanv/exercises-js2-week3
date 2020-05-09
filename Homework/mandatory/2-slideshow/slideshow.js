@@ -14,41 +14,47 @@ const abackBtn = document.querySelector("#abackBtn");
 const aforwardBtn = document.querySelector("#aforwardBtn");
 const img = document.createElement("img");
 let imgIndex = 0;
+var interval;
 // function displayImg(arr){ 
 //     img.setAttribute('src',arr[0])
 //     imgContainer.appendChild(img);
 // }
 function displayImg(arr){ 
+  
         img.setAttribute('src',arr[imgIndex])
         imgContainer.appendChild(img);   
 }
 displayImg(dogs);
 
 function forwardImg (arr){
+
+    clearInterval(rewindImg)
     if(imgIndex===arr.length-1){
-        imgIndex===imgIndex
+        imgIndex===imgIndex;
     } else {
-        imgIndex++  
+        imgIndex++ ; 
         img.setAttribute('src',arr[imgIndex])
     }
 }
 
 forwardBtn.addEventListener("click",function(){  
+ 
     forwardImg(dogs);
 });
 
 const aforward = aforwardBtn.addEventListener("click",function(){  
-    clearInterval(arewind)
-    setInterval(function(){
-    forwardImg(dogs);
-    },2000)
+    clearInterval(interval)
+    interval = setInterval(function(){
+        forwardImg(dogs);
+    },2000)   
     
 });
 
 
 function rewindImg (arr){
+ 
     if(imgIndex===0){
-    // imgIndex===imgIndex
+  
     } else {
         imgIndex-- 
         img.setAttribute('src',arr[imgIndex])
@@ -56,12 +62,14 @@ function rewindImg (arr){
 }
 
 backBtn.addEventListener("click",function(){
+    clearInterval(aforward)
+    clearInterval(arewind)
     rewindImg(dogs);
 });
 
 const arewind = abackBtn.addEventListener("click",function(){  
-    clearInterval(aforward)
-    setInterval(function(){
-    rewindImg(dogs);
+     clearInterval(interval)
+    interval = setInterval(function(){
+        rewindImg(dogs);
     },2000)    
 });
