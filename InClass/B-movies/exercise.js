@@ -8,6 +8,7 @@ Create a function called "showMovies" that
 - for each movie, it creates a <p> element with the movie title and director and append it to the #all-movies div.
 - it sets the innerText of the #movies-number element to the total number of the movies in the array "movies"
 
+
 Task 2
 Amend your function above to only show movies after 1 second. Remember to use setTimeout to achieve that
 Create a new function called "addMovie"
@@ -31,8 +32,74 @@ TIP: Use the functions you created on tasks 1-3
 
 ================
 */
-var movies = [
-  {
+
+// TASK 1
+
+function showMovies(arr) {
+  arr.forEach(function (movie) {
+    var movieCount = document.querySelector("#movies-number");
+    movieCount.innerText = movies.length
+    var paragraph = document.createElement("p");
+    paragraph.innerText = movie.title + " - " + movie.director;
+    allMovies.appendChild(paragraph)
+  })
+}
+
+// TASK 2
+
+
+
+
+var myMovie = {
+  title: "Batman",
+  director: "El Guason",
+  type: "sci-fi",
+  haveWatched: true
+}
+// TASk 3
+
+function addMovie(movie) {
+  movies.push(myMovie);
+}
+setTimeout(function () {
+  addMovie(myMovie)
+}, 2000)
+
+
+setTimeout(function () {
+  showMovies()
+}, 3000)
+
+
+///////
+///////
+
+const title = document.querySelector("#Title");
+const director = document.querySelector("#Director");
+const type = document.querySelector("#Type");
+const watched = document.querySelector("#watched");
+const btn = document.querySelector(".btn");
+
+btn.addEventListener("click", function () {
+  createNewMovie(title.value, director.value, type.value, watched.value)
+})
+
+function createNewMovie(a, b, c, d) {
+  newMovie.title = title.value
+  newMovie.director = director.value
+  newMovie.type = type.value
+  newMovie.watched = watched.value
+  movies.push(newMovie);
+  console.log(movies)
+}
+var newMovie = {
+  title: "",
+  director: "",
+  type: "",
+  watched: ""
+}
+
+var movies = [{
     title: "Color Out of Space",
     director: "Richard Stanley",
     type: "sci-fi",

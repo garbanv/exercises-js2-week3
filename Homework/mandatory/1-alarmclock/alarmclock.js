@@ -1,4 +1,20 @@
-function setAlarm() {}
+
+
+function setAlarm() {
+  const alarmSet = document.querySelector("#alarmSet");
+  const timeRemaining = document.querySelector("#timeRemaining");
+
+  timeRemaining.innerHTML = alarmSet.value;
+   var countdown = setInterval(function(){
+    timeRemaining.innerHTML--;
+     if(timeRemaining.innerHTML === "0") {
+       clearInterval(countdown);
+       playAlarm();
+     }  
+  },1000)
+}
+
+
 
 // DO NOT EDIT BELOW HERE
 
